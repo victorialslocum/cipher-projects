@@ -1,4 +1,4 @@
-# take in two english word, a plaintext and a keyphrase, and covert to a binary ciphertext
+# take in two english words, a plaintext and a keyphrase, and covert to a binary ciphertext
 
 # dictionary from english to binary 
 binaryTable =   {
