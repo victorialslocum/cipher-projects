@@ -1,6 +1,6 @@
-# in one function!!
+# to do: give user a way to decode it lol
 
-def binary_from(plaintext, keyphrase):
+def binary_from_english(input1, input2):
 
     # dictionary from english to binary 
     binaryTable =   {
@@ -58,8 +58,11 @@ def binary_from(plaintext, keyphrase):
     "Z" : "01011010"
     }
 
-    plaintextString = plaintext.replace(" ", "")
-    keyphraseString = keyphrase.replace(" ", "")
+    input1 = str(input1)
+    input2 = str(input2)
+
+    input1String = input1.replace(" ", "")
+    input2String = input2.replace(" ", "")
 
     def repeatString(englishString, targetLength):
         number_of_repeats = targetLength // len(englishString) + 1
@@ -67,7 +70,7 @@ def binary_from(plaintext, keyphrase):
         a_string_repeated_to_target = a_string_repeated[:targetLength]
         return a_string_repeated_to_target
 
-    keyphraseString = repeatString(keyphraseString, len(plaintextString))
+    input2String = repeatString(input2String, len(input1String))
 
     # function that turns english to binary and outputs it as a string
     def englishToBinary(englishString):
@@ -85,34 +88,68 @@ def binary_from(plaintext, keyphrase):
         return tempBinary
 
     # run code to convert to binary 
-    plaintextBinary = englishToBinary(plaintextString)
-    keyphraseBinary = englishToBinary(keyphraseString)
+    input1Binary = englishToBinary(input1String)
+    input2Binary = englishToBinary(input2String)
 
-    # print outputs
-    print("Your plaintext in binary is " + plaintextBinary)
-    print("Your keyphrase in binary is " + keyphraseBinary)
-
-    # change to ciphertext
-    def getKey(plaintext, keyphrase):
+    # change to output
+    def getKey(input1, input2):
         
-        ciphertextTemp = ""
+        outputTemp = ""
 
         x = 0
 
-        while len(plaintext) > x:
-            if plaintext[x] == keyphrase[x]:
-                ciphertextTemp += "0"
+        while len(input1) > x:
+            if input1[x] == input2[x]:
+                outputTemp += "0"
                 x +=1
-            elif plaintext[x] != keyphrase[x]:
-                ciphertextTemp += "1"
+            elif input1[x] != input2[x]:
+                outputTemp += "1"
                 x += 1
 
-        return ciphertextTemp
+        return outputTemp
 
     # run code
-    ciphertext = getKey(plaintextBinary, keyphraseBinary)
+    output = getKey(input1Binary, input2Binary)
 
     # print final output
-    print("Your ciphertext in binary is " + ciphertext)
+    return output
+
+def binary_from_binary(input1, input2):
+    # change to strings
+    input1 = str(input1)
+    input2 = str(input2)
+
+    # change to output
+    def getKey(input1, input2):
+        
+        outputTemp = ""
+
+        x = 0
+
+        while len(input1) > x:
+            if input1[x] == input2[x]:
+                outputTemp += "0"
+                x +=1
+            elif input1[x] != input2[x]:
+                outputTemp += "1"
+                x += 1
+
+        return outputTemp
+
+    # run code
+    output = getKey(input1, input2)
+
+    # print final output
+    return output
 
 
+def two_inputs(input1, input2):
+    input1 = str(input1)
+    input2 = str(input2)
+    
+    if "0" in input1:
+        binary_from_binary(input1, input2)
+    else:
+        binary_from_english(input1, input2)
+
+print(two_inputs("1011", "0110"))
