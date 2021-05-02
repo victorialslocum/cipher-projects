@@ -1,24 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Binary Substitution Cipher</title>
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='style.css') }}"
     />
-</head>
-<body>
-    <h1>Encript a plaintext into binary using a keyphrase!</h1>
-    <form action="" method="get">
-        <label for="plaintext"> Input your plaintext: </label><br>
-        <input type="text" name="plaintext" /><br>
-        <label for="keyphrase"> Input your keyphrase: </label><br>
-        <input type="text" name="keyphrase" /><br>
-        <input type="submit" value="Convert" />
-      </form>
-      <p>{{ binary }}</p>
-</body>
+  </head>
+  <body>
+    <h1 class="header">Encript a plaintext into binary using a keyphrase!</h1>
+    <div class="container">
+      <div class="form">
+        <form action="" method="get">
+          <label for="plaintext"> Input your plaintext: </label><br />
+          <input class="input" type="text" name="plaintext" /><br />
+          <label for="keyphrase"> Input your keyphrase: </label><br />
+          <input class="input" type="text" name="keyphrase" /><br />
+          <input class="button" type="submit" value="Convert" />
+        </form>
+      </div>
+      <div class="description">
+        <p class="title">How it works</p>
+        <p class="content">
+          This algorithm works to convert a plaintext and a keyphrase into
+          binary and then use a binary substitution cipher to make a
+          not-that-secure cipher from your inputs. It will automatically match
+          your keyphrase length to the plaintext to ensure the best possible
+          transcription! <br />
+          <br />
+          Note: It's case sensitive and only works with letters of the English
+          alphabet!
+        </p>
+      </div>
+    </div>
+    <p class="binary">Your result in binary is...</p>
+    <h3 class="binary">{{ binary }}</h3>
+    <footer>
+      <h1 class="footer">Check out some other stuff!</h1>
+      <nav>
+        <ul class="nav-menu">
+          <li>
+            <a href="http://127.0.0.1:5000/" alt="home">clojure projects</a>
+          </li>
+          <li>
+            <a
+              href="https://victoriaslocum.com"
+              alt="about victoria"
+              target="_blank"
+              >about victoria</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://notion.victoriaslocum.com/9c4392077dfd4fe488be08d34e9b9066?v=4146da24144a48af81d7cf42f9b3e505"
+              target="_blank"
+              alt="other projects"
+              >other projects</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </footer>
+  </body>
 </html>
