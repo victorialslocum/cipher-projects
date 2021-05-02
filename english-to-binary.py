@@ -1,5 +1,4 @@
-# change binary characters to English letters
-# this probably already exists but oh well
+# change english alphabet characters to binary
 
 binaryTable =   {
    "a" : "01100001",
@@ -56,25 +55,25 @@ binaryTable =   {
    "Z" : "01011010"
 }
 
-binaryStringInput = input("Please enter your binary string ")
+englishStringInput = input("Please enter your English ")
 
-binaryString = binaryStringInput.replace(" ", "")
-englishTranslation = ""
+englishString = englishStringInput.replace(" ", "")
+binaryTranslation = ""
 
 
-def binaryToEnglish():
-    global binaryString, englishTranslation
+def englishToBinary():
+    global englishString, binaryTranslation
 
-    n = 8
+    n = 1
 
-    binaryStringSplit = [binaryString[i:i+n] for i in range(0, len(binaryString), n)]
+    binaryStringSplit = [englishString[i:i+n] for i in range(0, len(englishString), n)]
 
     for i in binaryStringSplit:
         for key, value in binaryTable.items():
-            if i == value:
-                englishTranslation += str(key)
+            if i == key:
+                binaryTranslation += str(value)
 
 
 if __name__ == "__main__":
-    binaryToEnglish()
-    print(englishTranslation)
+    englishToBinary()
+    print(binaryTranslation)

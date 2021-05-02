@@ -1,21 +1,22 @@
 # decode and encode a binary substituion cipher
 
 #Get the key
-plaintext = input("Enter your plaintext here ")
-ciphertext = input ("enter your ciphertext here ")
+plainText = input("Enter your plaintext here ")
+cipherText = input ("Enter your ciphertext here ")
 
 key = ""
 x = 0
-lenPlain = len(plaintext)
+lenPlain = len(plainText)
 
 def getKey():
     global x, key, lenPlain
+
     while lenPlain > x:
-        if plaintext[x] == ciphertext[x]:
-            key = key + "0"
+        if plainText[x] == cipherText[x]:
+            key += "0"
             x +=1
-        elif plaintext[x] != ciphertext[x]:
-            key = key + "1"
+        elif plainText[x] != cipherText[x]:
+            key += "1"
             x += 1
 
 
