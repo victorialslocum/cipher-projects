@@ -60,18 +60,60 @@ binaryTable =   {
 englishPlaintext = input("Enter your English plaintext here ")
 englishKeyphrase = input("Enter your English keyphrase here ")
 
-# take englishPlaintext into binaryPlaintext
-englishString = englishPlaintext.replace(" ", "")
-binaryTranslation = ""
+# remove spaces and set up translation
+plaintextString = englishPlaintext.replace(" ", "")
+keyphraseString = englishKeyphrase.replace(" ", "")
 
-def englishToBinary():
-    global englishString, binaryTranslation
+#make keyphrase the same length as plaintext
+def repeatString(englishString, targetLength):
+    number_of_repeats = targetLength // len(englishString) + 1
+    a_string_repeated = englishString * number_of_repeats
+    a_string_repeated_to_target = a_string_repeated[:targetLength]
+    return a_string_repeated_to_target
+
+keyphraseString = repeatString(keyphraseString, len(plaintextString))
+
+# function that turns english to binary and outputs it as a string
+def englishToBinary(englishString):
+    tempBinary = ""
 
     n = 1
 
-    binaryStringSplit = [englishString[i:i+n] for i in range(0, len(englishString), n)]
+    stringSplit = [englishString[i:i+n] for i in range(0, len(englishString), n)]
 
-    for i in binaryStringSplit:
+    for i in stringSplit:
         for key, value in binaryTable.items():
             if i == key:
-                binaryTranslation += str(value)
+                tempBinary += value
+
+    return tempBinary
+
+# run code to convert to binary 
+plaintextBinary = englishToBinary(plaintextString)
+keyphraseBinary = englishToBinary(keyphraseString)
+
+# print outputs
+print("Your plaintext in binary is " + plaintextBinary)
+print("Your keyphrase in binary is " + keyphraseBinary)
+
+# change to ciphertext
+ciphertext = ""
+x = 0
+lenPlain = len(plaintextBinary)
+
+def getKey():
+    global x, ciphertext, lenPlain
+
+    while lenPlain > x:
+        if plaintextBinary[x] == keyphraseBinary[x]:
+            ciphertext += "0"
+            x +=1
+        elif plaintextBinary[x] != keyphraseBinary[x]:
+            ciphertext += "1"
+            x += 1
+
+# run code
+getKey()
+
+# print final output
+print("Your ciphertext in binary is " + ciphertext)

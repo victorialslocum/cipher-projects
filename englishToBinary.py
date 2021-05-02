@@ -61,19 +61,19 @@ englishString = englishStringInput.replace(" ", "")
 binaryTranslation = ""
 
 
-def englishToBinary():
-    global englishString, binaryTranslation
+def englishToBinary(string):
+    global binaryTranslation
 
     n = 1
 
-    binaryStringSplit = [englishString[i:i+n] for i in range(0, len(englishString), n)]
+    binaryStringSplit = [string[i:i+n] for i in range(0, len(string), n)]
 
     for i in binaryStringSplit:
         for key, value in binaryTable.items():
             if i == key:
-                binaryTranslation += str(value)
+                binaryTranslation += value
 
 
 if __name__ == "__main__":
-    englishToBinary()
+    englishToBinary(englishString)
     print(binaryTranslation)
