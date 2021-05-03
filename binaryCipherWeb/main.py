@@ -122,6 +122,20 @@ def two_inputs(input1, input2):
         a_string_repeated_to_target = a_string_repeated[:targetLength]
         return a_string_repeated_to_target
     
+    # change binary to english
+    def binaryToEnglish(string):
+        englishTranslation = ""
+
+        n = 8
+
+        binaryStringSplit = [string[i:i+n] for i in range(0, len(string), n)]
+
+        for i in binaryStringSplit:
+            for key, value in binaryTable.items():
+                if i == value:
+                    englishTranslation += key
+
+        return englishTranslation
 
     if "0" in input1 and "0" in input2:
         # change to strings
@@ -154,7 +168,10 @@ def two_inputs(input1, input2):
         input2 = repeatString(input2, len(input1))
 
         # binary substitution cipher
-        output = binarySubCipher(input1, input2)
+        binaryOutput = binarySubCipher(input1, input2)
+        
+        # convert to english
+        output = binaryToEnglish(binaryOutput)
 
         # return final output
         return output
@@ -175,7 +192,10 @@ def two_inputs(input1, input2):
         input1 = repeatString(input1, len(input2))
 
         # binary substitution cipher
-        output = binarySubCipher(input1, input2)
+        binaryOutput = binarySubCipher(input1, input2)
+
+        # convert to english
+        output = binaryToEnglish(binaryOutput)
 
         # return final output
         return output
@@ -273,9 +293,10 @@ def one_input(input1):
                     englishTranslation += str(key)
 
         return englishTranslation
+        
     else:
+        binaryString = input1.replace(" ", "")
         binaryTranslation = ""
-
         n = 1
 
         englishStringSplit = [input1[i:i+n] for i in range(0, len(input1), n)]
