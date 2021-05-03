@@ -19,24 +19,25 @@
           <input class="input" type="text" name="input1" /><br />
           <label for="input2"> Input 2: </label><br />
           <input class="input" type="text" name="input2" /><br />
-          <input class="button" type="submit" value="Convert" />
+          <input class="button" type="submit" value="convert" />
         </form>
       </div>
       <div class="description">
         <p class="title">How it works</p>
         <p class="content">
-          This algorithm works to convert a plaintext and a keyphrase into
-          binary and then use a binary substitution cipher to make a
-          not-that-secure cipher from your inputs. It will automatically match
-          your keyphrase length to the plaintext to ensure the best possible
-          transcription! <br />
+          If you give one input into the first box, it will detect whether you
+          have inputted English or binary and give you the translation from that
+          to the other. <br />
           <br />
-          Note: It's case sensitive and only works with letters of the English
-          alphabet!
+          If you give two inputs, it will use a binary subsitution cipher to
+          encript your text and return the encrypted output.<br />
+          <br />
+          Note: it still doesn't work with two different types of inputs, and it
+          only works if you input the singular input into the first box.
         </p>
       </div>
     </div>
-    <p class="binary">Your result is...</p>
+    <p class="binary">Your result is:</p>
     <h3 class="binary">{{ output }}</h3>
     <footer>
       <h1 class="footer">Check out some other stuff!</h1>

@@ -26,7 +26,7 @@ def index():
 
 @app.route("/<input1>/<input2>")
 def two_inputs(input1, input2):
-    if "0" in input1:
+    if "0" in input1 and "0" in input2:
          # change to strings
         input1 = str(input1)
         input2 = str(input2)
