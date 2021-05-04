@@ -10,4 +10,10 @@ It was actually a lot more difficult than I thought it would be :cry: but I also
 
 Always open to any sort of feedback :smile:
 
+ToDo: 
+- [ ] clean up files that are not the website
+- [ ] host on domain
+- [ ] add 'delete first 0' so I can use it with my class projects
+- [ ] probably other stuff too
+
 [website](https://victoriaslocum.com/)
