@@ -59,22 +59,26 @@ binaryTable =   {
 binaryStringInput = input("Please enter your binary string ")
 
 binaryString = binaryStringInput.replace(" ", "")
-englishTranslation = ""
 
 
-def binaryToEnglish():
-    global binaryString, englishTranslation
+def binaryToEnglish(string, ASCtype):
+        englishTranslation = ""
 
-    n = 8
+        if ASCtype == "7bit":
+            n = 7
+        else:
+            n = 8
 
-    binaryStringSplit = [binaryString[i:i+n] for i in range(0, len(binaryString), n)]
+        binaryStringSplit = [string[i:i+n] for i in range(0, len(string), n)]
 
-    for i in binaryStringSplit:
-        for key, value in binaryTable.items():
-            if i == value:
-                englishTranslation += str(key)
+        for i in binaryStringSplit:
+            for key, value in binaryTable.items():
+                if i == value:
+                    englishTranslation += key
+
+        return englishTranslation
 
 
 if __name__ == "__main__":
-    binaryToEnglish()
-    print(englishTranslation)
+    print(binaryToEnglish(binaryString, "7bit"))
+    

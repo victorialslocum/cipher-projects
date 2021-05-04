@@ -1,25 +1,25 @@
 # decode and encode a binary substituion cipher
 
 #Get the key
-plainText = input("Enter your plaintext here ")
-cipherText = input ("Enter your ciphertext here ")
+input1 = input("Enter your first input here ")
+input2 = input ("Enter your second input here ")
 
-key = ""
-x = 0
-lenPlain = len(plainText)
+def binarySubCipher(input1, input2):
+        
+        outputTemp = ""
 
-def getKey():
-    global x, key, lenPlain
+        x = 0
 
-    while lenPlain > x:
-        if plainText[x] == cipherText[x]:
-            key += "0"
-            x +=1
-        elif plainText[x] != cipherText[x]:
-            key += "1"
-            x += 1
+        while len(input1) > x:
+            if input1[x] == input2[x]:
+                outputTemp += "0"
+                x +=1
+            elif input1[x] != input2[x]:
+                outputTemp += "1"
+                x += 1
+
+        return outputTemp
 
 
 if __name__ == "__main__":
-    getKey()
-    print(key)
+    print(binarySubCipher(input1, input2))

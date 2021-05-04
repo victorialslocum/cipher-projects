@@ -58,11 +58,10 @@ binaryTable =   {
 englishStringInput = input("Please enter your English ")
 
 englishString = englishStringInput.replace(" ", "")
-binaryTranslation = ""
 
 
 def englishToBinary(string):
-    global binaryTranslation
+    binaryTranslation = ""
 
     n = 1
 
@@ -72,8 +71,10 @@ def englishToBinary(string):
         for key, value in binaryTable.items():
             if i == key:
                 binaryTranslation += value
+    
+    return binaryTranslation
 
 
 if __name__ == "__main__":
-    englishToBinary(englishString)
-    print(binaryTranslation)
+    print(englishToBinary(englishString))
+    
