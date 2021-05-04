@@ -1,5 +1,4 @@
-def two_inputs(input1, input2):
-    # english to binary dictionary
+def one_input(ASCtype, input1):
     binaryTable =   {
     "a" : "01100001",
     "b" : "01100010",
@@ -55,124 +54,39 @@ def two_inputs(input1, input2):
     "Z" : "01011010"
     }
 
+    if ASCtype == "7bit":
+        for key, value in binaryTable.items():
+            binaryTable[key] = value[1:]
+    else:
+        binaryTable = binaryTable
 
-    # change to output through binary sub cipher
-    def binarySubCipher(input1, input2):
+    if "0" in input1:
         
-        outputTemp = ""
+        binaryString = input1.replace(" ", "")
+        englishTranslation = ""
+        n = 8
 
-        x = 0
+        binaryStringSplit = [binaryString[i:i+n] for i in range(0, len(binaryString), n)]
 
-        while len(input1) > x:
-            if input1[x] == input2[x]:
-                outputTemp += "0"
-                x +=1
-            elif input1[x] != input2[x]:
-                outputTemp += "1"
-                x += 1
+        for i in binaryStringSplit:
+            for key, value in binaryTable.items():
+                if i == value:
+                    englishTranslation += str(key)
 
-        return outputTemp
-
-    # change to english from binary
-    def englishToBinary(string):
-        tempBinary = ""
-
+        return englishTranslation
+        
+    else:
+        binaryString = input1.replace(" ", "")
+        binaryTranslation = ""
         n = 1
 
-        stringSplit = [string[i:i+n] for i in range(0, len(string), n)]
+        englishStringSplit = [input1[i:i+n] for i in range(0, len(input1), n)]
 
-        for i in stringSplit:
+        for i in englishStringSplit:
             for key, value in binaryTable.items():
                 if i == key:
-                    tempBinary += value
+                    binaryTranslation += value
 
-        return tempBinary
+        return binaryTranslation
 
-    # repeat string to amtch a desired length
-    def repeatString(string, targetLength):
-        number_of_repeats = targetLength // len(string) + 1
-        a_string_repeated = string * number_of_repeats
-        a_string_repeated_to_target = a_string_repeated[:targetLength]
-        return a_string_repeated_to_target
-    
-
-    if "0" in input1 and "0" in input2:
-        # change to strings
-        input1 = str(input1)
-        input2 = str(input2)
-
-        # replace spaces
-        input1= input1.replace(" ", "")
-        input2 = input2.replace(" ", "")
-
-        # binary substituion cipher
-        output = binarySubCipher(input1, input2)
-
-        # print final output
-        return output
-
-    elif "0" in input1 and input2[0] in binaryTable.keys():
-        # change to strings
-        input1 = str(input1)
-        input2 = str(input2)
-
-        # replace spaces
-        input1= input1.replace(" ", "")
-        input2 = input2.replace(" ", "")
-
-        # change input 2 to binary
-        input2 = englishToBinary(input2)
-
-        # make input 2 the same length as input 1
-        input2 = repeatString(input2, len(input1))
-
-        # binary substitution cipher
-        output = binarySubCipher(input1, input2)
-
-        # return final output
-        return output
-
-    elif "0" in input2 and input1[0] in binaryTable.keys():
-        # change to strings
-        input1 = str(input1)
-        input2 = str(input2)
-
-        # replace spaces
-        input1= input1.replace(" ", "")
-        input2 = input2.replace(" ", "")
-        
-        # change input 1 to binary
-        input1 = englishToBinary(input1)
-
-        # make input1 the same length as input 2
-        input1 = repeatString(input1, len(input2))
-
-        # binary substitution cipher
-        output = binarySubCipher(input1, input2)
-
-        # return final output
-        return output
-
-    else:
-        #change inputs to strings
-        input1 = str(input1)
-        input2 = str(input2)
-
-        # replace spaces
-        input1 = input1.replace(" ", "")
-        input2 = input2.replace(" ", "")
-
-        #make the english input 2 the same length as the english input 1
-        input2 = repeatString(input2, len(input1))
-
-        # run code to convert to binary
-        input1 = englishToBinary(input1)
-        input2 = englishToBinary(input2)
-
-        # run binary substitution cipher
-        output = binarySubCipher(input1, input2)
-
-        # return final output
-        return output
-
-(print (two_inputs("10011", "10011")))
+print(one_input("7bit", 'a'))

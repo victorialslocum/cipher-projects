@@ -14,18 +14,19 @@ app = Flask(__name__)
 def index():
     input1 = request.args.get("input1", "")
     input2 = request.args.get("input2", "")
+    ASCtype = request.args.get("ASCtype", "")
 
     if input1 and input2:
-        output = two_inputs(input1, input2)
+        output = two_inputs(ASCtype, input1, input2)
     elif input1:
-        output = one_input(input1)
+        output = one_input(ASCtype, input1)
     else:
         output = ""
 
     return render_template("index.html", output=output)
 
-@app.route("/<input1>/<input2>")
-def two_inputs(input1, input2):
+@app.route("/<ASCtype>/<input1>/<input2>")
+def two_inputs(ASCtype, input1, input2):
     # english to binary dictionary
     binaryTable =   {
     "a" : "01100001",
@@ -82,6 +83,11 @@ def two_inputs(input1, input2):
     "Z" : "01011010"
     }
 
+    if ASCtype == "7bit":
+        for key, value in binaryTable.items():
+            binaryTable[key] = value[1:]
+    else:
+        binaryTable = binaryTable
 
     # change to output through binary sub cipher
     def binarySubCipher(input1, input2):
@@ -126,7 +132,10 @@ def two_inputs(input1, input2):
     def binaryToEnglish(string):
         englishTranslation = ""
 
-        n = 8
+        if ASCtype == "7bit":
+            n = 7
+        else:
+            n = 8
 
         binaryStringSplit = [string[i:i+n] for i in range(0, len(string), n)]
 
@@ -222,8 +231,8 @@ def two_inputs(input1, input2):
         # return final output
         return output
 
-@app.route("/<input1>")
-def one_input(input1):
+@app.route("/<ASCtype>/<input1>")
+def one_input(ASCtype, input1):
     binaryTable =   {
     "a" : "01100001",
     "b" : "01100010",
@@ -279,11 +288,21 @@ def one_input(input1):
     "Z" : "01011010"
     }
 
+    if ASCtype == "7bit":
+        for key, value in binaryTable.items():
+            binaryTable[key] = value[1:]
+    else:
+        binaryTable = binaryTable
+
     if "0" in input1:
         
         binaryString = input1.replace(" ", "")
         englishTranslation = ""
-        n = 8
+        
+        if ASCtype == "7bit":
+            n = 7
+        else:
+            n = 8
 
         binaryStringSplit = [binaryString[i:i+n] for i in range(0, len(binaryString), n)]
 

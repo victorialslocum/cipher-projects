@@ -11,10 +11,19 @@
     />
   </head>
   <body>
+    <script type="text/javascript" src="/js/webScript.js"></script>
     <h1 class="header">Encript a plaintext into binary using a keyphrase!</h1>
     <div class="container">
       <div class="form">
         <form action="" method="get">
+          <label for="ASCtype"> ASCII Type: </label><br />
+          <div class="select-style">
+            <select class="ASCmenu" for="ASCtype" name="ASCtype" size="2">
+              <option name="ASCtype" value="8bit">8-bit</option>
+              <option name="ASCtype" value="7bit">7-bit</option>
+            </select>
+          </div>
+          <br />
           <label for="input1"> Input 1: </label><br />
           <input class="input" type="text" name="input1" /><br />
           <label for="input2"> Input 2: </label><br />
