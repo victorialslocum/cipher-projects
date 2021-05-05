@@ -14,6 +14,7 @@ ToDo:
 - [x] clean up files that are not the website
 - [ ] host on domain
 - [x] add 'delete first 0' so I can use it with my class projects
-- [ ] probably other stuff too
+- [x] add about page
+- [ ] mobile version
 
 [website](https://victoriaslocum.com/)

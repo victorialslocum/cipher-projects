@@ -25,6 +25,10 @@ def index():
 
     return render_template("index.html", output=output)
 
+@app.route("/aboutbinary")
+def aboutBinary():
+    return render_template("aboutbinary.html")
+
 @app.route("/<ASCtype>/<input1>/<input2>")
 def two_inputs(ASCtype, input1, input2):
     # english to binary dictionary
