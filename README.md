@@ -12,9 +12,11 @@ Always open to any sort of feedback :smile:
 
 ToDo: 
 - [x] clean up files that are not the website
-- [ ] host on domain
+- [x] host on domain
 - [x] add 'delete first 0' so I can use it with my class projects
 - [x] add about page
 - [ ] mobile version
+- [ ] fix menu in About Binary section
 
-[website](https://victoriaslocum.com/)
+You can find the link to the website here:
+[website](https://cipher.victoriaslocum.com)
