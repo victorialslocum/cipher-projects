@@ -10,13 +10,14 @@ It was actually a lot more difficult than I thought it would be :cry: but I also
 
 Always open to any sort of feedback :smile:
 
-ToDo: 
+ToDo:
+
 - [x] clean up files that are not the website
 - [x] host on domain
 - [x] add 'delete first 0' so I can use it with my class projects
 - [x] add about page
 - [ ] mobile version
-- [ ] fix menu in About Binary section
+- [x] fix menu in About Binary section
 
-You can find the link to the website here:
-[website](https://cipher.victoriaslocum.com)
+You can find the link to the website
+[here](https://cipher.victoriaslocum.com)
