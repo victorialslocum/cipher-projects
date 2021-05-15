@@ -80,8 +80,21 @@ h3.head {
   text-underline-offset: 5px;
 }
 
+h3.head::selection {
+  background: #85c9e8;
+  color: white;
+  display: block;
+  text-decoration: none;
+}
+
 p.des {
   font-size: 20px;
   font-family: sans-serif;
   margin-left: 20px;
+}
+
+p.des::selection {
+  background: #85c9e8;
+  color: white;
+  display: block;
 }
